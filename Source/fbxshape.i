@@ -7,5 +7,7 @@
 
 // Unignore class
 %rename("%s", %$isclass) FbxShape;
+%rename("%s") FbxShape::SetAbsoluteMode;
+%rename("%s") FbxShape::IsAbsoluteMode;
 
 %include "fbxsdk/scene/geometry/fbxshape.h"
