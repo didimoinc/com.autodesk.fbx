@@ -7,10 +7,10 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 using System.Linq;
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
 	internal class FbxAnimCurveFilterUnrollTest : TestBase<FbxAnimCurveFilterUnroll>
     {

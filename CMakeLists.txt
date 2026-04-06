@@ -152,7 +152,7 @@ configure_file(${CMAKE_SOURCE_DIR}/proto.com.autodesk.fbx/package.json.in ${CMAK
 ###########################################################################
 # Set up the swig run.
 set_source_files_properties(Source/fbxsdk.i PROPERTIES CPLUSPLUS ON)
-set_source_files_properties(Source/fbxsdk.i PROPERTIES SWIG_FLAGS "-namespace;Autodesk.Fbx;-Werror")
+set_source_files_properties(Source/fbxsdk.i PROPERTIES SWIG_FLAGS "-namespace;Didimo.Autodesk.Fbx;-Werror")
 
 # Set up extra swig dependencies. Must be before building the typemaps.
 file(GLOB SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS "${CMAKE_SOURCE_DIR}/Source/*.i")

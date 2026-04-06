@@ -5,11 +5,11 @@
 // See LICENSE.md file in the project root for full license information.
 // ***********************************************************************
 using NUnit.Framework;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
     internal class GlobalsTest
     {
@@ -22,9 +22,9 @@ namespace Autodesk.Fbx.UnitTests
         {
             /* We test the PINVOKE class by reflection since it's private to
              * its assembly. */
-            var alltypes = typeof(Autodesk.Fbx.Globals).Assembly.GetTypes();
+            var alltypes = typeof(Didimo.Autodesk.Fbx.Globals).Assembly.GetTypes();
             foreach(var t in alltypes) {
-                if (t.Namespace == "Autodesk.Fbx" && t.Name == kPINVOKE) {
+                if (t.Namespace == "Didimo.Autodesk.Fbx" && t.Name == kPINVOKE) {
                     s_PINVOKEtype = t;
                     break;
                 }

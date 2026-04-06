@@ -5,9 +5,9 @@
 // See LICENSE.md file in the project root for full license information.
 // ***********************************************************************
 using NUnit.Framework;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
     internal abstract class FbxConstraintTestBase<T> : Base<T> where T : FbxConstraint
     {

@@ -1,7 +1,7 @@
 {
-    "name": "Autodesk.Fbx.PerformanceTests",
+    "name": "Didimo.Autodesk.Fbx.UseCaseTests",
     "references": [
-        "Autodesk.Fbx"
+        "Didimo.Autodesk.Fbx"
     ],
     "includePlatforms": [
         "Editor"
@@ -9,7 +9,6 @@
     "optionalUnityReferences": [
         "TestAssemblies"
     ],
-    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false
 }

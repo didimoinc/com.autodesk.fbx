@@ -5,7 +5,7 @@
 // See LICENSE.md file in the project root for full license information.
 // ***********************************************************************
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
     internal static class Invoker
     {

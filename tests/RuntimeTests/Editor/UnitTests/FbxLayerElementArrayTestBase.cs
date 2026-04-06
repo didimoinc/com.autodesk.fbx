@@ -7,9 +7,9 @@
 
 using NUnit.Framework;
 using System.Collections;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
     internal abstract class FbxLayerElementArrayTestBase<T> : TestBase<T> where T : Autodesk.Fbx.FbxLayerElementArray
     {

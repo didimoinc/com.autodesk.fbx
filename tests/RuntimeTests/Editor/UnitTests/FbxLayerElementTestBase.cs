@@ -9,7 +9,7 @@
 
 using NUnit.Framework;
 using System.Collections;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
 /*
  * Convenience class for testing all derived classes of FbxLayerElement.
@@ -17,7 +17,7 @@ using Autodesk.Fbx;
  * FbxLayerElement itself has no public constructor or Create function, so we can
  * only test its functions from its derived classes (which do have Create functions).
  */
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
     internal abstract class FbxLayerElementTestBase<T> where T: Autodesk.Fbx.FbxLayerElement
     {

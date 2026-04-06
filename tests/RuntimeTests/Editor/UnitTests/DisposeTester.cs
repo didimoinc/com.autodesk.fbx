@@ -8,7 +8,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
     internal static class DisposeTester
     {

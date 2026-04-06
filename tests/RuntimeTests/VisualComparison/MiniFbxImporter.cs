@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
 public class MiniFbxImporter : MonoBehaviour
 {

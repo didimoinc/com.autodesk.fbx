@@ -6,11 +6,11 @@
 // ***********************************************************************
 
 using NUnit.Framework;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 using System.IO;
 using System.Collections.Generic;
 
-namespace Autodesk.Fbx.UseCaseTests
+namespace Didimo.Autodesk.Fbx.UseCaseTests
 {
 
     internal class EmptyExportTest : RoundTripTestBase

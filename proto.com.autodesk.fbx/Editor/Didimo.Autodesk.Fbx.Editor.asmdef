@@ -1,5 +1,5 @@
 {
-    "name": "Autodesk.Fbx.Editor",
+    "name": "Didimo.Autodesk.Fbx.Editor",
     "references": [],
     "includePlatforms": [
         "Editor"

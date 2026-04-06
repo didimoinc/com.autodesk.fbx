@@ -6,9 +6,9 @@
 // ***********************************************************************
 using NUnit.Framework;
 using System.Collections;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
 
     internal class FbxIOBaseTest<T> : Base<T> where T: FbxIOBase

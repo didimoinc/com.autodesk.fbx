@@ -1,12 +1,11 @@
 {
-    "name": "Autodesk.Fbx.PlayModeTests",
+    "name": "Didimo.Autodesk.Fbx.PlayModeTests",
     "references": [
-        "Autodesk.Fbx"
+        "Didimo.Autodesk.Fbx"
     ],
     "optionalUnityReferences": [
         "TestAssemblies"
     ],
-    "includePlatforms": [],
     "excludePlatforms": [],
     "defineConstraints": [
         "!FBX_RUNNING_BUILD_TEST"

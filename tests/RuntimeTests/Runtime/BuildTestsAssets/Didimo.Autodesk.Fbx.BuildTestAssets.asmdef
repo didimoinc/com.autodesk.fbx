@@ -1,7 +1,7 @@
 {
-    "name": "Autodesk.Fbx.BuildTestAssets",
+    "name": "Didimo.Autodesk.Fbx.BuildTestAssets",
     "references": [
-        "Autodesk.Fbx",
+        "Didimo.Autodesk.Fbx",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

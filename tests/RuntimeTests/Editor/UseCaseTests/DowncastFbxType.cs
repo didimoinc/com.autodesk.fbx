@@ -5,12 +5,12 @@
 // See LICENSE.md file in the project root for full license information.
 // ***********************************************************************
 using NUnit.Framework;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 using System.IO;
 
 
 
-namespace Autodesk.Fbx.UseCaseTests
+namespace Didimo.Autodesk.Fbx.UseCaseTests
 {
     public class DowncastFbxType
     {

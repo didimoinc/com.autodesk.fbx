@@ -12,7 +12,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 
-namespace Autodesk.Fbx.Examples
+namespace Didimo.Autodesk.Fbx.Examples
 {
     namespace Editor
     {

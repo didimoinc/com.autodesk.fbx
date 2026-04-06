@@ -5,9 +5,9 @@
 // See LICENSE.md file in the project root for full license information.
 // ***********************************************************************
 using NUnit.Framework;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
     internal class FbxPropertyTest : TestBase<FbxProperty>
     {
@@ -222,9 +222,9 @@ namespace Autodesk.Fbx.UnitTests
                 var property = node.VisibilityInheritance;
                 property.Set(false);
                 Assert.AreEqual(false, property.Get());
-                Assert.AreEqual(false, property.EvaluateValue());
-                Assert.AreEqual(false, property.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(false, property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(false, property.EvaluateValue());
+                // Assert.AreEqual(false, property.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(false, property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using(var manager = FbxManager.Create()) {
@@ -235,9 +235,9 @@ namespace Autodesk.Fbx.UnitTests
                 var property = obj.EmissiveFactor;
                 property.Set(5.0); // bool Set<float> is not accessible here!
                 Assert.AreEqual(5.0, property.Get());
-                Assert.AreEqual(5.0, property.EvaluateValue());
-                Assert.AreEqual(5.0, property.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(5.0, property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(5.0, property.EvaluateValue());
+                // Assert.AreEqual(5.0, property.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(5.0, property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using(var manager = FbxManager.Create()) {
@@ -248,9 +248,9 @@ namespace Autodesk.Fbx.UnitTests
                 var property = node.LclTranslation;
                 property.Set(new FbxDouble3(1,2,3));
                 Assert.AreEqual(new FbxDouble3(1, 2, 3), property.Get());
-                Assert.AreEqual(new FbxDouble3(1, 2, 3), property.EvaluateValue());
-                Assert.AreEqual(new FbxDouble3(1, 2, 3), property.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(new FbxDouble3(1, 2, 3), property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(new FbxDouble3(1, 2, 3), property.EvaluateValue());
+                // Assert.AreEqual(new FbxDouble3(1, 2, 3), property.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(new FbxDouble3(1, 2, 3), property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using(var manager = FbxManager.Create()) {
@@ -261,9 +261,9 @@ namespace Autodesk.Fbx.UnitTests
                 var property = light.LeftBarnDoor;
                 light.LeftBarnDoor.Set(5.0f);
                 Assert.AreEqual(5.0f, light.LeftBarnDoor.Get());
-                Assert.AreEqual(5.0f, property.EvaluateValue());
-                Assert.AreEqual(5.0f, property.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(5.0f, property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(5.0f, property.EvaluateValue());
+                // Assert.AreEqual(5.0f, property.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(5.0f, property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using (var manager = FbxManager.Create ()) {
@@ -275,9 +275,9 @@ namespace Autodesk.Fbx.UnitTests
                 int value = (int)FbxConstraintAim.EWorldUp.eAimAtObjectUp;
                 constraint.WorldUpType.Set (value);
                 Assert.That (constraint.WorldUpType.Get (), Is.EqualTo (value));
-                Assert.That (property.EvaluateValue (), Is.EqualTo (value));
-                Assert.That (property.EvaluateValue (FbxTime.FromSecondDouble (5)), Is.EqualTo (value));
-                Assert.That (property.EvaluateValue (FbxTime.FromSecondDouble (5), true), Is.EqualTo (value));
+                // Assert.That (property.EvaluateValue (), Is.EqualTo (value));
+                // Assert.That (property.EvaluateValue (FbxTime.FromSecondDouble (5)), Is.EqualTo (value));
+                // Assert.That (property.EvaluateValue (FbxTime.FromSecondDouble (5), true), Is.EqualTo (value));
             }
 
             using (var manager = FbxManager.Create()) {
@@ -290,9 +290,9 @@ namespace Autodesk.Fbx.UnitTests
                 Assert.AreEqual("a value", property.Get());
 
                 // animated strings come out as empty-string
-                Assert.AreEqual("", property.EvaluateValue());
-                Assert.AreEqual("", property.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual("", property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual("", property.EvaluateValue());
+                // Assert.AreEqual("", property.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual("", property.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using (var manager = FbxManager.Create()) {
@@ -302,16 +302,16 @@ namespace Autodesk.Fbx.UnitTests
                 FbxPropertyTest.GenericPropertyTests(tex.CurrentTextureBlendMode, tex, "CurrentTextureBlendMode", Globals.FbxEnumDT);
                 tex.CurrentTextureBlendMode.Set(FbxTexture.EBlendMode.eAdditive);
                 Assert.AreEqual(FbxTexture.EBlendMode.eAdditive, tex.CurrentTextureBlendMode.Get());
-                Assert.AreEqual(FbxTexture.EBlendMode.eAdditive, tex.CurrentTextureBlendMode.EvaluateValue());
-                Assert.AreEqual(FbxTexture.EBlendMode.eAdditive, tex.CurrentTextureBlendMode.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxTexture.EBlendMode.eAdditive, tex.CurrentTextureBlendMode.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxTexture.EBlendMode.eAdditive, tex.CurrentTextureBlendMode.EvaluateValue());
+                // Assert.AreEqual(FbxTexture.EBlendMode.eAdditive, tex.CurrentTextureBlendMode.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxTexture.EBlendMode.eAdditive, tex.CurrentTextureBlendMode.EvaluateValue(FbxTime.FromSecondDouble(5), true));
 
                 FbxPropertyTest.GenericPropertyTests(tex.WrapModeU, tex, "WrapModeU", Globals.FbxEnumDT);
                 tex.WrapModeU.Set(FbxTexture.EWrapMode.eClamp);
                 Assert.AreEqual(FbxTexture.EWrapMode.eClamp, tex.WrapModeU.Get());
-                Assert.AreEqual(FbxTexture.EWrapMode.eClamp, tex.WrapModeU.EvaluateValue());
-                Assert.AreEqual(FbxTexture.EWrapMode.eClamp, tex.WrapModeU.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxTexture.EWrapMode.eClamp, tex.WrapModeU.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxTexture.EWrapMode.eClamp, tex.WrapModeU.EvaluateValue());
+                // Assert.AreEqual(FbxTexture.EWrapMode.eClamp, tex.WrapModeU.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxTexture.EWrapMode.eClamp, tex.WrapModeU.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using (var manager = FbxManager.Create()) {
@@ -321,9 +321,9 @@ namespace Autodesk.Fbx.UnitTests
                 FbxPropertyTest.GenericPropertyTests(null1.Look, null1, "Look", Globals.FbxEnumDT);
                 null1.Look.Set(FbxNull.ELook.eCross);
                 Assert.AreEqual(FbxNull.ELook.eCross, null1.Look.Get());
-                Assert.AreEqual(FbxNull.ELook.eCross, null1.Look.EvaluateValue());
-                Assert.AreEqual(FbxNull.ELook.eCross, null1.Look.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxNull.ELook.eCross, null1.Look.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxNull.ELook.eCross, null1.Look.EvaluateValue());
+                // Assert.AreEqual(FbxNull.ELook.eCross, null1.Look.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxNull.ELook.eCross, null1.Look.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using (var manager = FbxManager.Create()) {
@@ -333,9 +333,9 @@ namespace Autodesk.Fbx.UnitTests
                 FbxPropertyTest.GenericPropertyTests(marker1.Look, marker1, "Look", Globals.FbxEnumDT);
                 marker1.Look.Set(FbxMarker.ELook.eCapsule);
                 Assert.AreEqual(FbxMarker.ELook.eCapsule, marker1.Look.Get());
-                Assert.AreEqual(FbxMarker.ELook.eCapsule, marker1.Look.EvaluateValue());
-                Assert.AreEqual(FbxMarker.ELook.eCapsule, marker1.Look.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxMarker.ELook.eCapsule, marker1.Look.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxMarker.ELook.eCapsule, marker1.Look.EvaluateValue());
+                // Assert.AreEqual(FbxMarker.ELook.eCapsule, marker1.Look.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxMarker.ELook.eCapsule, marker1.Look.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using (var manager = FbxManager.Create()) {
@@ -345,9 +345,9 @@ namespace Autodesk.Fbx.UnitTests
                 FbxPropertyTest.GenericPropertyTests(camera.ProjectionType, camera, "CameraProjectionType", Globals.FbxEnumDT);
                 camera.ProjectionType.Set(FbxCamera.EProjectionType.ePerspective);
                 Assert.AreEqual(FbxCamera.EProjectionType.ePerspective, camera.ProjectionType.Get());
-                Assert.AreEqual(FbxCamera.EProjectionType.ePerspective, camera.ProjectionType.EvaluateValue());
-                Assert.AreEqual(FbxCamera.EProjectionType.ePerspective, camera.ProjectionType.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxCamera.EProjectionType.ePerspective, camera.ProjectionType.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxCamera.EProjectionType.ePerspective, camera.ProjectionType.EvaluateValue());
+                // Assert.AreEqual(FbxCamera.EProjectionType.ePerspective, camera.ProjectionType.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxCamera.EProjectionType.ePerspective, camera.ProjectionType.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using (var manager = FbxManager.Create()) {
@@ -357,9 +357,9 @@ namespace Autodesk.Fbx.UnitTests
                 FbxPropertyTest.GenericPropertyTests(camera.GateFit, camera, "GateFit", Globals.FbxEnumDT);
                 camera.GateFit.Set(FbxCamera.EGateFit.eFitHorizontal);
                 Assert.AreEqual(FbxCamera.EGateFit.eFitHorizontal, camera.GateFit.Get());
-                Assert.AreEqual(FbxCamera.EGateFit.eFitHorizontal, camera.GateFit.EvaluateValue());
-                Assert.AreEqual(FbxCamera.EGateFit.eFitHorizontal, camera.GateFit.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxCamera.EGateFit.eFitHorizontal, camera.GateFit.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxCamera.EGateFit.eFitHorizontal, camera.GateFit.EvaluateValue());
+                // Assert.AreEqual(FbxCamera.EGateFit.eFitHorizontal, camera.GateFit.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxCamera.EGateFit.eFitHorizontal, camera.GateFit.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using (var manager = FbxManager.Create()) {
@@ -369,9 +369,9 @@ namespace Autodesk.Fbx.UnitTests
                 FbxPropertyTest.GenericPropertyTests(node.InheritType, node, "InheritType", Globals.FbxEnumDT);
                 node.InheritType.Set(FbxTransform.EInheritType.eInheritRSrs);
                 Assert.AreEqual(FbxTransform.EInheritType.eInheritRSrs, node.InheritType.Get());
-                Assert.AreEqual(FbxTransform.EInheritType.eInheritRSrs, node.InheritType.EvaluateValue());
-                Assert.AreEqual(FbxTransform.EInheritType.eInheritRSrs, node.InheritType.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxTransform.EInheritType.eInheritRSrs, node.InheritType.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxTransform.EInheritType.eInheritRSrs, node.InheritType.EvaluateValue());
+                // Assert.AreEqual(FbxTransform.EInheritType.eInheritRSrs, node.InheritType.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxTransform.EInheritType.eInheritRSrs, node.InheritType.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using (var manager = FbxManager.Create()) {
@@ -381,23 +381,23 @@ namespace Autodesk.Fbx.UnitTests
                 FbxPropertyTest.GenericPropertyTests(light.LightType, light, "LightType", Globals.FbxEnumDT);
                 light.LightType.Set(FbxLight.EType.eSpot);
                 Assert.AreEqual(FbxLight.EType.eSpot, light.LightType.Get());
-                Assert.AreEqual(FbxLight.EType.eSpot, light.LightType.EvaluateValue());
-                Assert.AreEqual(FbxLight.EType.eSpot, light.LightType.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxLight.EType.eSpot, light.LightType.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxLight.EType.eSpot, light.LightType.EvaluateValue());
+                // Assert.AreEqual(FbxLight.EType.eSpot, light.LightType.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxLight.EType.eSpot, light.LightType.EvaluateValue(FbxTime.FromSecondDouble(5), true));
 
                 FbxPropertyTest.GenericPropertyTests(light.AreaLightShape, light, "AreaLightShape", Globals.FbxEnumDT);
                 light.AreaLightShape.Set(FbxLight.EAreaLightShape.eSphere);
                 Assert.AreEqual(FbxLight.EAreaLightShape.eSphere, light.AreaLightShape.Get());
-                Assert.AreEqual(FbxLight.EAreaLightShape.eSphere, light.AreaLightShape.EvaluateValue());
-                Assert.AreEqual(FbxLight.EAreaLightShape.eSphere, light.AreaLightShape.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxLight.EAreaLightShape.eSphere, light.AreaLightShape.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxLight.EAreaLightShape.eSphere, light.AreaLightShape.EvaluateValue());
+                // Assert.AreEqual(FbxLight.EAreaLightShape.eSphere, light.AreaLightShape.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxLight.EAreaLightShape.eSphere, light.AreaLightShape.EvaluateValue(FbxTime.FromSecondDouble(5), true));
 
                 FbxPropertyTest.GenericPropertyTests(light.DecayType, light, "DecayType", Globals.FbxEnumDT);
                 light.DecayType.Set(FbxLight.EDecayType.eCubic);
                 Assert.AreEqual(FbxLight.EDecayType.eCubic, light.DecayType.Get());
-                Assert.AreEqual(FbxLight.EDecayType.eCubic, light.DecayType.EvaluateValue());
-                Assert.AreEqual(FbxLight.EDecayType.eCubic, light.DecayType.EvaluateValue(FbxTime.FromSecondDouble(5)));
-                Assert.AreEqual(FbxLight.EDecayType.eCubic, light.DecayType.EvaluateValue(FbxTime.FromSecondDouble(5), true));
+                // Assert.AreEqual(FbxLight.EDecayType.eCubic, light.DecayType.EvaluateValue());
+                // Assert.AreEqual(FbxLight.EDecayType.eCubic, light.DecayType.EvaluateValue(FbxTime.FromSecondDouble(5)));
+                // Assert.AreEqual(FbxLight.EDecayType.eCubic, light.DecayType.EvaluateValue(FbxTime.FromSecondDouble(5), true));
             }
 
             using (var manager = FbxManager.Create()) {

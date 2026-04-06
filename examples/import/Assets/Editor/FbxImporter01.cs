@@ -13,9 +13,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
-namespace Autodesk.Fbx.Examples
+namespace Didimo.Autodesk.Fbx.Examples
 {
     namespace Editor
     {

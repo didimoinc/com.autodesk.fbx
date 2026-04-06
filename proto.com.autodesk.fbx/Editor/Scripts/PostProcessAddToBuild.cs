@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditor.Callbacks;
 using System.IO;
 
-namespace Autodesk.Fbx
+namespace Didimo.Autodesk.Fbx
 {
     /// <summary>
     /// Add UnityFbxSdkNative plugin to build after build is complete.

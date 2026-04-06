@@ -6,9 +6,9 @@
 // ***********************************************************************
 using NUnit.Framework;
 using System.Collections;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
-namespace Autodesk.Fbx.UseCaseTests
+namespace Didimo.Autodesk.Fbx.UseCaseTests
 {
     internal class TransformExportTest : RoundTripTestBase
     {

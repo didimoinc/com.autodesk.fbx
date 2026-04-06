@@ -2,10 +2,10 @@
 using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 using System.IO;
 
-namespace Autodesk.Fbx.PlayModeTests
+namespace Didimo.Autodesk.Fbx.PlayModeTests
 {
     internal class FbxExporterTest {
         [Test]

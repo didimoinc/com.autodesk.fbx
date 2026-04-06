@@ -8,9 +8,9 @@ using NUnit.Framework;
 using System.Collections;
 using System.IO;
 using System.Collections.Generic;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
-namespace Autodesk.Fbx.UseCaseTests
+namespace Didimo.Autodesk.Fbx.UseCaseTests
 {
     internal abstract class RoundTripTestBase
     {

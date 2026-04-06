@@ -5,7 +5,7 @@
 // See LICENSE.md file in the project root for full license information.
 // ***********************************************************************
 using NUnit.Framework;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 using System.Diagnostics;
 using System.Text;
 using System.IO;
@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System;
 using UnityEditorInternal;
 
-namespace Autodesk.Fbx.PerformanceTests
+namespace Didimo.Autodesk.Fbx.PerformanceTests
 {
     [TestFixture]
     internal class PerformanceTest

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
     internal class FbxNurbsCurveTest : FbxGeometryTestBase<FbxNurbsCurve>
     {

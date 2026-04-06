@@ -7,12 +7,12 @@ using System.IO;
 using UnityEngine.TestTools;
 using System.Diagnostics;
 
-namespace Autodesk.Fbx.BuildTests
+namespace Didimo.Autodesk.Fbx.BuildTests
 {
     internal class BuildTest
     {
         private const string k_fbxsdkNativePlugin = "UnityFbxSdkNative";
-        private const string k_autodeskFbxDll = "Autodesk.Fbx.dll";
+        private const string k_autodeskFbxDll = "Didimo.Autodesk.Fbx.dll";
 
 #if UNITY_EDITOR_WIN
         private const string k_fbxsdkNativePluginExt = ".dll";

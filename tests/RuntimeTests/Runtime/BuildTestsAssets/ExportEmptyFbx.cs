@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 
-namespace Autodesk.Fbx.BuildTests
+namespace Didimo.Autodesk.Fbx.BuildTests
 {
     internal class ExportEmptyFbx : MonoBehaviour
     {

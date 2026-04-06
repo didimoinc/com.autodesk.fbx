@@ -7,9 +7,9 @@
 
 using NUnit.Framework;
 using System.Collections.Generic;
-using Autodesk.Fbx;
+using Didimo.Autodesk.Fbx;
 
-namespace Autodesk.Fbx.UnitTests
+namespace Didimo.Autodesk.Fbx.UnitTests
 {
     internal class FbxAnimCurveTest : Base<FbxAnimCurve>
     {

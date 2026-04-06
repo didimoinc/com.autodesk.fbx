@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Autodesk.Fbx.UseCaseTests
+namespace Didimo.Autodesk.Fbx.UseCaseTests
 {
     internal class AnimatedConstraintExportTest : AnimationClipsExportTest
     {
