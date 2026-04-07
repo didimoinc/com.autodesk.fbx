@@ -292,32 +292,32 @@ if (${YAMATO} STREQUAL "OFF")
         target_link_libraries(unity_tests ${CMAKE_THREAD_LIBS_INIT}) # need to include pthread libs for Linux
         endif()
 
-        install(DIRECTORY ${CMAKE_SOURCE_DIR}/proto.com.autodesk.fbx.testing/ DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Tests PATTERN "*.in" EXCLUDE)
+        install(DIRECTORY ${CMAKE_SOURCE_DIR}/proto.com.autodesk.fbx.testing/ DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Tests PATTERN "*.in" EXCLUDE)
         # copy C++ performance tests
-        install(TARGETS unity_tests DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Tests)
-        install(FILES ${CMAKE_BINARY_DIR}/vector_test.txt DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Tests)
+        install(TARGETS unity_tests DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Tests)
+        install(FILES ${CMAKE_BINARY_DIR}/vector_test.txt DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Tests)
         
         ###########################################################################
 endif()
 
 if (NOT (${CMAKE_OSX_ARCHITECTURES} STREQUAL "x86_64"))
-    install(DIRECTORY ${CMAKE_SOURCE_DIR}/proto.com.autodesk.fbx/ DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx PATTERN "*.in" EXCLUDE)
-    install(FILES ${CMAKE_BINARY_DIR}/package.json DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx)
-    install(DIRECTORY ${CMAKE_BINARY_DIR}/swig/generated/csharp/ DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Runtime/Scripts FILES_MATCHING PATTERN "*.cs")
-    install(DIRECTORY ${CMAKE_SOURCE_DIR}/Source/optimized/ DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Runtime/Scripts FILES_MATCHING PATTERN "*.cs")
+    install(DIRECTORY ${CMAKE_SOURCE_DIR}/proto.com.autodesk.fbx/ DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx PATTERN "*.in" EXCLUDE)
+    install(FILES ${CMAKE_BINARY_DIR}/package.json DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx)
+    install(DIRECTORY ${CMAKE_BINARY_DIR}/swig/generated/csharp/ DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Runtime/Scripts FILES_MATCHING PATTERN "*.cs")
+    install(DIRECTORY ${CMAKE_SOURCE_DIR}/Source/optimized/ DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Runtime/Scripts FILES_MATCHING PATTERN "*.cs")
 endif()
 
-install(TARGETS UnityFbxSdkNative DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Editor/Plugins)
+install(TARGETS UnityFbxSdkNative DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Editor/Plugins)
 
 if (NOT (${CMAKE_OSX_ARCHITECTURES} STREQUAL "x86_64"))
-    install(FILES ${CMAKE_SOURCE_DIR}/CHANGELOG.md DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx)
-    install(FILES ${CMAKE_SOURCE_DIR}/LICENSE.md DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx)
-    install(FILES "${CMAKE_SOURCE_DIR}/Third Party Notices.md" DESTINATION ${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx)
+    install(FILES ${CMAKE_SOURCE_DIR}/CHANGELOG.md DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx)
+    install(FILES ${CMAKE_SOURCE_DIR}/LICENSE.md DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx)
+    install(FILES "${CMAKE_SOURCE_DIR}/Third Party Notices.md" DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx)
 
     # Copy the test-run framework
 
-    install(DIRECTORY "${CMAKE_SOURCE_DIR}/tests/RuntimeTests/Editor" DESTINATION  "${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Tests/")
-    install(FILES "${CMAKE_SOURCE_DIR}/tests/RuntimeTests/Editor.meta" DESTINATION "${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Tests")
-    install(DIRECTORY "${CMAKE_SOURCE_DIR}/tests/RuntimeTests/Runtime" DESTINATION  "${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Tests/")
-    install(FILES "${CMAKE_SOURCE_DIR}/tests/RuntimeTests/Runtime.meta" DESTINATION "${CMAKE_INSTALL_PREFIX}/com.autodesk.fbx/Tests")
+    install(DIRECTORY "${CMAKE_SOURCE_DIR}/tests/RuntimeTests/Editor" DESTINATION  "${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Tests/")
+    install(FILES "${CMAKE_SOURCE_DIR}/tests/RuntimeTests/Editor.meta" DESTINATION "${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Tests")
+    install(DIRECTORY "${CMAKE_SOURCE_DIR}/tests/RuntimeTests/Runtime" DESTINATION  "${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Tests/")
+    install(FILES "${CMAKE_SOURCE_DIR}/tests/RuntimeTests/Runtime.meta" DESTINATION "${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Tests")
 endif()

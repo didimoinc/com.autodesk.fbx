@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "com.autodesk.fbx": "file:../../../build/install/com.autodesk.fbx",
-    "com.autodesk.fbx.testing": "file:../../../build/install/com.autodesk.fbx.testing",
+    "co.didimo.autodesk.fbx": "file:../../../build/install/co.didimo.autodesk.fbx",
+    "co.didimo.autodesk.fbx.testing": "file:../../../build/install/co.didimo.autodesk.fbx.testing",
     "com.unity.ads": "2.0.8",
     "com.unity.analytics": "3.0.9",
     "com.unity.collab-proxy": "1.2.11",

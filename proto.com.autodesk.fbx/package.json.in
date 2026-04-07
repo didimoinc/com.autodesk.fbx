@@ -8,7 +8,7 @@
         "maya",
         "max"
     ],
-    "name": "com.autodesk.fbx",
+    "name": "co.didimo.autodesk.fbx",
     "unity": "2020.3",
     "version": "5.1.0",
     "author": {

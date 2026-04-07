@@ -32,7 +32,7 @@ namespace Didimo.Autodesk.Fbx.BuildTests
 #endif
         private const BuildTargetGroup k_buildTargetGroup = BuildTargetGroup.Standalone;
 
-        private const string k_buildTestScene = "Packages/com.autodesk.fbx/Tests/Runtime/BuildTestsAssets/BuildTestScene.unity";
+        private const string k_buildTestScene = "Packages/co.didimo.autodesk.fbx/Tests/Runtime/BuildTestsAssets/BuildTestScene.unity";
 
         private const string k_createdFbx = "emptySceneFromRuntimeBuild.fbx";
 

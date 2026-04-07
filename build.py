@@ -148,7 +148,7 @@ if sys.platform.startswith('darwin'):
         sys.exit(retcode)
 
     # combine the arm build and the legacy build with lipo
-    bundle_path = "install/com.autodesk.fbx/Editor/Plugins/UnityFbxSdkNative.bundle/Contents/MacOS/UnityFbxSdkNative"
+    bundle_path = "install/co.didimo.autodesk.fbx/Editor/Plugins/UnityFbxSdkNative.bundle/Contents/MacOS/UnityFbxSdkNative"
     bundle_name = "UnityFbxSdkNative"
     arm_bundle = os.path.join(builddir, bundle_path)
     legacy_bundle = os.path.join(builddir_legacy, bundle_path)

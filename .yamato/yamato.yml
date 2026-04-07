@@ -78,7 +78,7 @@ pack:
     - cp -vrfp build-mac/install/* .
     - cp -vrfp build-win/install/* .
     - npm install -g upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm
-    - upm-ci package pack --package-path com.autodesk.fbx
+    - upm-ci package pack --package-path co.didimo.autodesk.fbx
   dependencies:
     - .yamato/yamato.yml#build_win
     - .yamato/yamato.yml#build_mac
@@ -94,7 +94,7 @@ pack:
         - "upm-ci~/packages/**"
     build_output:
       paths:
-        - "com.autodesk.fbx/**"
+        - "co.didimo.autodesk.fbx/**"
 
 # Job to generate documentation for the package
 generate_documentation:
@@ -107,8 +107,8 @@ generate_documentation:
     - brick_source: git@github.cds.internal.unity3d.com:wind-xu/virtual_production_doc_generation.git@v0.3.0
       variables:
         EDITOR_VERSION: {{ editors.last.version }}
-        PACKAGE_NAME: com.autodesk.fbx
-        PACKAGE_PATH: com.autodesk.fbx
+        PACKAGE_NAME: co.didimo.autodesk.fbx
+        PACKAGE_PATH: co.didimo.autodesk.fbx
         #Set to false because some file links such as api/index.html don't exist in local Documentation folder and will cause warnings. They only exist in generated documentation.
         WARNINGS_AS_ERRORS: false
   dependencies:
@@ -141,7 +141,7 @@ test_{{ platform.name }}_{{ editor.version }}:
 {% endif %}
     # Code coverage is only available in Unity 2019.3 and higher.
     # Setting backend to il2cpp to ensure il2cpp is installed and can be used by editor tests (see Note above).
-    - upm-ci package test --backend il2cpp --unity-version {{ editor.version }} --package-path com.autodesk.fbx --enable-code-coverage --extra-utr-arg=--coverage-pkg-version=1.2.2 --code-coverage-options 'generateHtmlReport;assemblyFilters:+Autodesk.Fbx'
+    - upm-ci package test --backend il2cpp --unity-version {{ editor.version }} --package-path co.didimo.autodesk.fbx --enable-code-coverage --extra-utr-arg=--coverage-pkg-version=1.2.2 --code-coverage-options 'generateHtmlReport;assemblyFilters:+Autodesk.Fbx'
     - python tests/Yamato/check_coverage_percent.py upm-ci~/test-results/ {{ coverage.minPercent }}
     - echo "****** PASSED *******"
   artifacts:
@@ -161,7 +161,7 @@ test_trigger_pr_documentation:
   name: Pull Request Tests Trigger for documentation changes
   triggers:
     cancel_old_ci: true
-    expression: pull_request.(source match ".*" AND push.changes.any match "com.autodesk.fbx/Documentation~/**" AND NOT draft)
+    expression: pull_request.(source match ".*" AND push.changes.any match "co.didimo.autodesk.fbx/Documentation~/**" AND NOT draft)
   dependencies:
     - .yamato/yamato.yml#generate_documentation
 
@@ -170,7 +170,7 @@ test_trigger_pr:
   name: Pull Request Tests Trigger
   triggers:
     cancel_old_ci: true
-    expression: pull_request.(source match ".*" AND NOT push.changes.all match ["com.autodesk.fbx/Documentation~/**", "**/*.md"] AND NOT draft)
+    expression: pull_request.(source match ".*" AND NOT push.changes.all match ["co.didimo.autodesk.fbx/Documentation~/**", "**/*.md"] AND NOT draft)
   dependencies:
     - .yamato/yamato.yml#pack
 {% for editor in editors %}
@@ -201,7 +201,7 @@ promotion_test:
     UPMCI_PROMOTION: 1
   commands:
     - npm install upm-ci-utils@stable -g --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm
-    - upm-ci package test --backend il2cpp --unity-version {{ promote_platform.version }} --package-path com.autodesk.fbx
+    - upm-ci package test --backend il2cpp --unity-version {{ promote_platform.version }} --package-path co.didimo.autodesk.fbx
   artifacts:
     logs:
       paths:
@@ -222,9 +222,9 @@ publish:
     UPMCI_ENABLE_PACKAGE_SIGNING: 1
   commands:
     - dir /A 
-    - dir /A com.autodesk.fbx
+    - dir /A co.didimo.autodesk.fbx
     - npm install upm-ci-utils@latest -g --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm
-    - upm-ci package publish --package-path com.autodesk.fbx
+    - upm-ci package publish --package-path co.didimo.autodesk.fbx
   artifacts:
     packages:
       paths:
@@ -243,9 +243,9 @@ publish_dry_run:
     UPMCI_ENABLE_PACKAGE_SIGNING: 1
   commands:
     - dir /A 
-    - dir /A com.autodesk.fbx
+    - dir /A co.didimo.autodesk.fbx
     - npm install upm-ci-utils@latest -g --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm
-    - upm-ci package publish --package-path com.autodesk.fbx --dry-run
+    - upm-ci package publish --package-path co.didimo.autodesk.fbx --dry-run
   artifacts:
     packages:
       paths:
@@ -264,7 +264,7 @@ promote:
     UPMCI_PROMOTION: 1
   commands:
     - npm install upm-ci-utils@stable -g --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm
-    - upm-ci package promote --package-path com.autodesk.fbx
+    - upm-ci package promote --package-path co.didimo.autodesk.fbx
   artifacts:
     packages:
       paths:

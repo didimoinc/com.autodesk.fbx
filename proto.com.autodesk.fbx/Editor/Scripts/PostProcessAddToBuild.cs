@@ -12,7 +12,7 @@ namespace Didimo.Autodesk.Fbx
     public class PostProcessAddToBuild
     {
         private const string fbxsdkNativePlugin = "UnityFbxSdkNative";
-        private const string fbxsdkNativePluginPath = "Packages/com.autodesk.fbx/Editor/Plugins";
+        private const string fbxsdkNativePluginPath = "Packages/co.didimo.autodesk.fbx/Editor/Plugins";
         
         private const string fbxsdkNativePluginExtWin = ".dll";
         private const string fbxsdkNativePluginExtOSX = ".bundle";

@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.autodesk.fbx": "1.7.0-preview"
+    "co.didimo.autodesk.fbx": "1.7.0-preview"
   },
   "registry": "https://api.bintray.com/npm/unity/unity-dev"
 }
