@@ -11,7 +11,7 @@ namespace Didimo.Autodesk.Fbx.BuildTests
 {
     internal class BuildTest
     {
-        private const string k_fbxsdkNativePlugin = "UnityFbxSdkNative";
+        private const string k_fbxsdkNativePlugin = "DidimoFbxSdkNative";
         private const string k_autodeskFbxDll = "Didimo.Autodesk.Fbx.dll";
 
 #if UNITY_EDITOR_WIN
