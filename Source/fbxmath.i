@@ -53,7 +53,7 @@
   int GetHashCode() { return GetHashCode(*$self, 16); }
 }
 
-%include "UnityFbxSdkNative-fixed-headers/fbxmatrix.h"
+%include "DidimoFbxSdkNative-fixed-headers/fbxmatrix.h"
 
 /******************************
  * FbxAMatrix (guaranteed affine)
@@ -83,7 +83,7 @@
 
 // Hack to get FbxAMatrix::SetROnly
 #undef DOXYGEN_SHOULD_SKIP_THIS
-%include "UnityFbxSdkNative-fixed-headers/fbxaffinematrix.h"
+%include "DidimoFbxSdkNative-fixed-headers/fbxaffinematrix.h"
 #define DOXYGEN_SHOULD_SKIP_THIS
 
 /******************************

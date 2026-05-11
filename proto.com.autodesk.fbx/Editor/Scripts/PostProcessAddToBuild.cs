@@ -7,11 +7,11 @@ using System.IO;
 namespace Didimo.Autodesk.Fbx
 {
     /// <summary>
-    /// Add UnityFbxSdkNative plugin to build after build is complete.
+    /// Add DidimoFbxSdkNative plugin to build after build is complete.
     /// </summary>
     public class PostProcessAddToBuild
     {
-        private const string fbxsdkNativePlugin = "UnityFbxSdkNative";
+        private const string fbxsdkNativePlugin = "DidimoFbxSdkNative";
         private const string fbxsdkNativePluginPath = "Packages/co.didimo.autodesk.fbx/Editor/Plugins";
         
         private const string fbxsdkNativePluginExtWin = ".dll";

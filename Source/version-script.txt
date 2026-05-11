@@ -1,4 +1,4 @@
-LIBUNITYFBXSDKNATIVE_1.0 {
+LIBDIDIMOFBXSDKNATIVE_1.0 {
   global:
     CSharp*;
     SWIG*;

@@ -22,7 +22,7 @@ message(STATUS "Building for ${CMAKE_BUILD_TYPE}")
 
 
 # ***********************************************************************
-project (UnityFbxSdkNative)
+project (DidimoFbxSdkNative)
 # ***********************************************************************
 
 if (NOT CMAKE_OSX_ARCHITECTURES)
@@ -155,30 +155,30 @@ set_source_files_properties(Source/fbxsdk.i PROPERTIES CPLUSPLUS ON)
 set_source_files_properties(Source/fbxsdk.i PROPERTIES SWIG_FLAGS "-namespace;Didimo.Autodesk.Fbx;-Werror")
 
 # Set up extra swig dependencies. Must be before building the typemaps.
-file(GLOB SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS "${CMAKE_SOURCE_DIR}/Source/*.i")
+file(GLOB SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS "${CMAKE_SOURCE_DIR}/Source/*.i")
 
 # Fix the header files we need to fix. Must be before building the typemaps.
-swig_fix_header(UnityFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/core/fbxpropertytypes.h")
-swig_fix_header(UnityFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/core/math/fbxmatrix.h")
-swig_fix_header(UnityFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/core/math/fbxaffinematrix.h")
-swig_fix_header(UnityFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/geometry/fbxlayer.h")
-swig_fix_header(UnityFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/core/fbxobject.h")
+swig_fix_header(DidimoFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/core/fbxpropertytypes.h")
+swig_fix_header(DidimoFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/core/math/fbxmatrix.h")
+swig_fix_header(DidimoFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/core/math/fbxaffinematrix.h")
+swig_fix_header(DidimoFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/geometry/fbxlayer.h")
+swig_fix_header(DidimoFbxSdkNative "${FBXSDK_INCLUDE_DIR}/fbxsdk/core/fbxobject.h")
 
 # Find the constants for FbxDataType.
 fbxsharp_discover_immutables(OUTPUT ${CMAKE_BINARY_DIR}/fbxdatatypeconstants.i
-        TARGETDEPS SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS
+        TARGETDEPS SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS
         HEADERS ${FBXSDK_INCLUDE_DIR}/fbxsdk/core/fbxdatatypes.h
 )
 
 # Find the properties for FbxDocumentInfo.
 fbxsharp_discover_immutables(OUTPUT ${CMAKE_BINARY_DIR}/fbxdocumentinfoimmutables.i
-        TARGETDEPS SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS
+        TARGETDEPS SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS
         HEADERS ${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/fbxdocumentinfo.h
 )
 
 # Find the constants and properties for FbxSurfaceMaterial, Lambert and Phong
 fbxsharp_discover_immutables(OUTPUT ${CMAKE_BINARY_DIR}/fbxsurfaceimmutables.i
-        TARGETDEPS SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS
+        TARGETDEPS SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS
         HEADERS ${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/shading/fbxsurfacematerial.h
                 ${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/shading/fbxsurfacelambert.h
                 ${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/shading/fbxsurfacephong.h
@@ -186,19 +186,19 @@ fbxsharp_discover_immutables(OUTPUT ${CMAKE_BINARY_DIR}/fbxsurfaceimmutables.i
 
 # Find the constants and properties for FbxTexture and FbxFileTexture.
 fbxsharp_discover_immutables(OUTPUT ${CMAKE_BINARY_DIR}/fbxtextureimmutables.i
-        TARGETDEPS SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS
+        TARGETDEPS SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS
         HEADERS ${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/shading/fbxtexture.h ${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/shading/fbxfiletexture.h
 )
 
 # Find the constants and properties for FbxMarker
 fbxsharp_discover_immutables(OUTPUT ${CMAKE_BINARY_DIR}/fbxmarkerimmutables.i
-        TARGETDEPS SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS
+        TARGETDEPS SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS
         HEADERS ${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/geometry/fbxmarker.h
 )
 
 # Find the constants and properties for FbxLight.
 fbxsharp_discover_immutables(OUTPUT ${CMAKE_BINARY_DIR}/fbxlightimmutables.i
-        TARGETDEPS SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS
+        TARGETDEPS SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS
         HEADERS ${FBXSDK_INCLUDE_DIR}/fbxsdk/scene/geometry/fbxlight.h
 )
 
@@ -220,14 +220,14 @@ add_custom_command(OUTPUT ${CMAKE_BINARY_DIR}/fbxsdk.typedefs
         ">" "${CMAKE_BINARY_DIR}/fbxsdk.typedefs"
         BYPRODUCTS "${CMAKE_BINARY_DIR}/fbxsdk.typedefs.temp"
         MAIN_DEPENDENCY ${FBXSDK_SWIG_I_FILE}
-        DEPENDS ${SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS}
+        DEPENDS ${SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS}
 )
 
 # Find all the types that need weak-pointer handling. Add the top of each hierarchy as arguments.
 fbxsharp_run_python(OUTPUT ${CMAKE_BINARY_DIR}/weakpointerhandles.i
         SCRIPT ${CMAKE_SOURCE_DIR}/scripts/discover-weakpointerhandles.py
         DEPENDS ${CMAKE_BINARY_DIR}/fbxsdk.typedefs
-        TARGETDEPS SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS
+        TARGETDEPS SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS
         ARGS ${CMAKE_BINARY_DIR}/weakpointerhandles.i ${CMAKE_BINARY_DIR}/fbxsdk.typedefs "FbxEmitter" "FbxManager")
 
 # Find all children of FbxObject to generate the downcast method to enable the
@@ -235,38 +235,38 @@ fbxsharp_run_python(OUTPUT ${CMAKE_BINARY_DIR}/weakpointerhandles.i
 fbxsharp_run_python(OUTPUT ${CMAKE_BINARY_DIR}/downcast_table.i
         SCRIPT ${CMAKE_SOURCE_DIR}/scripts/generate-downcast-table.py
         DEPENDS ${CMAKE_BINARY_DIR}/fbxsdk.typedefs
-        TARGETDEPS SWIG_MODULE_UnityFbxSdkNative_EXTRA_DEPS
+        TARGETDEPS SWIG_MODULE_DidimoFbxSdkNative_EXTRA_DEPS
         ARGS ${CMAKE_BINARY_DIR}/downcast_table.i ${CMAKE_BINARY_DIR}/fbxsdk.typedefs)
 
 # Finalize the swig output: build & link the library, munge the DllImport statements
 SET(CMAKE_SWIG_OUTDIR ${CMAKE_BINARY_DIR}/swig/generated/csharp)
 
-swig_add_library(UnityFbxSdkNative
+swig_add_library(DidimoFbxSdkNative
          TYPE MODULE
          LANGUAGE csharp
          SOURCES Source/fbxsdk.i)
 
-fbxsharp_run_python_postbuild(TARGET UnityFbxSdkNative
+fbxsharp_run_python_postbuild(TARGET DidimoFbxSdkNative
         SCRIPT ${CMAKE_SOURCE_DIR}/scripts/replace-dllimport.py
         ARGS ${CMAKE_BINARY_DIR}/swig/generated/csharp/NativeMethods.cs)
         
-fbxsharp_run_python_postbuild(TARGET UnityFbxSdkNative
+fbxsharp_run_python_postbuild(TARGET DidimoFbxSdkNative
         SCRIPT ${CMAKE_SOURCE_DIR}/scripts/il2cpp-fix-swighelpers.py
         ARGS ${CMAKE_BINARY_DIR}/swig/generated/csharp/NativeMethods.cs)
 
-fbxsharp_run_python_postbuild(TARGET UnityFbxSdkNative
+fbxsharp_run_python_postbuild(TARGET DidimoFbxSdkNative
         SCRIPT ${CMAKE_SOURCE_DIR}/scripts/add-runtime-define.py
         ARGS ${CMAKE_BINARY_DIR}/swig/generated/csharp)
 
-swig_link_libraries(UnityFbxSdkNative ${FBXSDK_LIBRARY})
+swig_link_libraries(DidimoFbxSdkNative ${FBXSDK_LIBRARY})
 
 # Hide FBX symbols in case the target application also has a copy of FBX
 # Happens to also reduce the output binary a lot too.
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
-  set_target_properties(UnityFbxSdkNative PROPERTIES BUNDLE TRUE)
-  target_link_libraries(UnityFbxSdkNative "-exported_symbols_list ${CMAKE_CURRENT_SOURCE_DIR}/Source/exported_symbols.txt -Wl,-x,-dead_strip")
+  set_target_properties(DidimoFbxSdkNative PROPERTIES BUNDLE TRUE)
+  target_link_libraries(DidimoFbxSdkNative "-exported_symbols_list ${CMAKE_CURRENT_SOURCE_DIR}/Source/exported_symbols.txt -Wl,-x,-dead_strip")
 elseif (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-  target_link_libraries(UnityFbxSdkNative "-Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/Source/version-script.txt -Wl,-x,--gc-sections")
+  target_link_libraries(DidimoFbxSdkNative "-Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/Source/version-script.txt -Wl,-x,--gc-sections")
 endif()
 
 if (${YAMATO} STREQUAL "OFF")
@@ -307,7 +307,7 @@ if (NOT (${CMAKE_OSX_ARCHITECTURES} STREQUAL "x86_64"))
     install(DIRECTORY ${CMAKE_SOURCE_DIR}/Source/optimized/ DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Runtime/Scripts FILES_MATCHING PATTERN "*.cs")
 endif()
 
-install(TARGETS UnityFbxSdkNative DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Editor/Plugins)
+install(TARGETS DidimoFbxSdkNative DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx/Editor/Plugins)
 
 if (NOT (${CMAKE_OSX_ARCHITECTURES} STREQUAL "x86_64"))
     install(FILES ${CMAKE_SOURCE_DIR}/CHANGELOG.md DESTINATION ${CMAKE_INSTALL_PREFIX}/co.didimo.autodesk.fbx)
