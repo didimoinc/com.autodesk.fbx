@@ -1,17 +1,19 @@
 {
-    "description": "This package provides Unity C# bindings to the Autodesk\u00ae FBX\u00ae SDK.",
-    "displayName": "co.didimo.autodesk.fbx", 
-    "keywords": [
-        "fbx",
-        "animation",
-        "modeling",
-        "maya",
-        "max"
-    ],
-    "name": "co.didimo.autodesk.fbx",
-    "unity": "2020.3",
-    "version": "5.1.0",
-    "author": {
-        "name": "Unity"
-    }
+  "description": "This package provides Unity C# bindings to the Autodesk\u00ae FBX\u00ae SDK.",
+  "displayName": "co.didimo.autodesk.fbx", 
+  "keywords": [
+    "fbx",
+    "animation",
+    "modeling",
+    "maya",
+    "max"
+  ],
+  "name": "co.didimo.autodesk.fbx",
+  "unity": "2020.3",
+  "version": "6.0.0",
+  "author": {
+    "name": "Didimo",
+    "email": "support@didimo.co",
+    "url": "https://www.didimo.co/"
+  }
 }
