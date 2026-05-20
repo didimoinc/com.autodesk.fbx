@@ -1,6 +1,6 @@
 {
   "description": "This package provides Unity C# bindings to the Autodesk\u00ae FBX\u00ae SDK.",
-  "displayName": "co.didimo.autodesk.fbx", 
+  "displayName": "co.didimo.autodesk.fbx",
   "keywords": [
     "fbx",
     "animation",
