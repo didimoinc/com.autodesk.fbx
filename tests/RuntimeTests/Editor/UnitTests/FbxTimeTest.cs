@@ -74,6 +74,7 @@ namespace Didimo.Autodesk.Fbx.UnitTests
             Assert.AreEqual(5, FbxTime.FromRaw(5).GetRaw());
             Assert.AreEqual(5, FbxTime.FromMilliSeconds(5000).GetSecondDouble());
             Assert.AreEqual(5, FbxTime.FromSecondDouble(5).GetSecondDouble());
+            FbxTime.SetGlobalTimeMode(FbxTime.EMode.eFrames30);
             Assert.AreEqual(126210.02, FbxTime.FromTime(pSecond:7, pHour:1, pMinute:10, pResidual:2).GetFrameCountPrecise());
             Assert.AreEqual(5, FbxTime.FromFrame(5).GetFrameCountPrecise());
             Assert.AreEqual(5.125, FbxTime.FromFramePrecise(5.125).GetFrameCountPrecise());

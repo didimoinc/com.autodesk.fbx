@@ -104,8 +104,8 @@ namespace Didimo.Autodesk.Fbx.UseCaseTests
                 FbxNode importConstrainedNode = importedScene.GetRootNode().GetChild(1);
                 FbxObject importPosConstraint = importedScene.FindSrcObject(constraintName);
                 UnityEngine.Debug.Log($"imported type is {importPosConstraint.GetType()}");
-                FbxConstraintPosition p = (FbxConstraintPosition)importPosConstraint;
-                FbxConstraint pp = (FbxConstraint)importPosConstraint; // fails here
+                //FbxConstraintPosition p = (FbxConstraintPosition)importPosConstraint;
+                //FbxConstraint pp = (FbxConstraint)importPosConstraint; // fails here
             }
         }
     }

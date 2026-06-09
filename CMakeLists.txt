@@ -44,7 +44,9 @@ if(MSVC)
 set(PROJECT_COMPILE_FLAGS "/WX")
 elseif(CMAKE_HOST_APPLE)
 # requires gcc 6 or higher
-set(PROJECT_COMPILE_FLAGS "-Werror -Wno-error=null-dereference")
+# -Wno-error=nontrivial-memcall: newer Clang flags the FBX SDK's own
+# memcpy/memset of non-trivially-copyable types (fbxarray.h); not our code.
+set(PROJECT_COMPILE_FLAGS "-Werror -Wno-error=null-dereference -Wno-error=nontrivial-memcall")
 else()
 # No Werror because there's invalid use of incomplete type FbxAnimEvaluator in fbxproperty.h
 set(PROJECT_COMPILE_FLAGS "-Wall -Wno-format -Wno-strict-aliasing")

@@ -53,6 +53,12 @@ struct WeakPointerHandle {
             return false;
         }
 
+    // Number of live C# references sharing this handle.
+    int RefCount() const { return m_numRefs; }
+
+    // True while the underlying Fbx object hasn't been freed yet.
+    bool IsAlive() const { return m_ptr != nullptr; }
+
     void ReleaseReference() {
 #ifdef MEMORY_DEBUG
         if (m_ptr != 0) {

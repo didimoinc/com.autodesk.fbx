@@ -42,6 +42,15 @@ extern "C" SWIGEXPORT void SWIGSTDCALL CSharp_$module_Release_WeakPointerHandle(
     static_cast<WeakPointerHandle*>(handle)->ReleaseReference();
 }
 
+/* Report whether this is the last C# reference to a still-live object, so an
+ * owning proxy (e.g. FbxManager) can decide whether to Destroy() the native
+ * object on Dispose without tearing it down while other proxies use it. */
+extern "C" SWIGEXPORT int SWIGSTDCALL CSharp_$module_WeakPointerHandle_IsLastLiveReference(void *handle) {
+    if (!handle) { return 0; }
+    WeakPointerHandle *h = static_cast<WeakPointerHandle*>(handle);
+    return (h->IsAlive() && h->RefCount() == 1) ? 1 : 0;
+}
+
 /* Set up the FBX allocators and support the static structures by creating a manager. */
 #include <fbxsdk.h>
 extern "C" SWIGEXPORT int SWIGSTDCALL CSharp_$module_InitFbxAllocators() {
@@ -86,6 +95,9 @@ extern "C" SWIGEXPORT int SWIGSTDCALL CSharp_$module_InitFbxAllocators() {
 
   [global::System.Runtime.InteropServices.DllImport("$dllimport", EntryPoint="CSharp_$module_Release_WeakPointerHandle")]
   public static extern void ReleaseWeakPointerHandle(global::System.Runtime.InteropServices.HandleRef handle);
+
+  [global::System.Runtime.InteropServices.DllImport("$dllimport", EntryPoint="CSharp_$module_WeakPointerHandle_IsLastLiveReference")]
+  public static extern int IsLastLiveWeakPointerReference(global::System.Runtime.InteropServices.HandleRef handle);
 %}
 
 /* Use:
