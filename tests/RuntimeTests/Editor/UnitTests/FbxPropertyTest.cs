@@ -102,9 +102,19 @@ namespace Didimo.Autodesk.Fbx.UnitTests
             Assert.AreEqual(propertyName, property.GetName());
             Assert.AreEqual(propertyName, property.ToString());
             Assert.AreEqual(propertyName, property.GetHierarchicalName());
+
+            // The label for standard properties (e.g. FbxNode.VisibilityInheritance) is
+            // stored in process-global property-template state owned by the never-released
+            // static FbxManager, so a label set here leaks across managers and across test
+            // re-runs in the same Editor session (the native plugin is not unloaded on
+            // domain reload). Force a known-empty label before asserting -- so a leak from a
+            // previous run can't make GetLabel(true) return a stale label instead of the
+            // name -- and restore it afterwards so this test doesn't pollute later ones.
+            property.SetLabel("");
             Assert.AreEqual(propertyName, property.GetLabel(true));
             property.SetLabel("label");
             Assert.AreEqual("label", property.GetLabel());
+            property.SetLabel("");
             Assert.AreEqual(parent, property.GetFbxObject());
             Assert.AreEqual(property.GetFbxObject(), parent); // test it both ways just in case equals is busted
 
